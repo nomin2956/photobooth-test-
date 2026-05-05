@@ -1,0 +1,171 @@
+.camera-wrap {
+  position: relative; /* дотоод элементүүд position:absolute ашиглах боломж */
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.camera-wrap::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  box-shadow: inset 0 0 30px rgba(255, 140, 180, 0.4);
+}
+#flash{
+  position: fixed;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+}
+#frame-overlay {
+  position: absolute; /*  Энэ элементийг өөрийнх нь эцэг элемент (энэ тохиолдолд camera-wrap) дотор чөлөөтэй "хөвж" байрлах боломжийг олгоно */
+  inset: 0;           /* Тухайн элементийг дөрвөн талаас нь (дээр, доор, баруун, зүүн) 0 зайтай болгож, эцэг элементийнхээ хэмжээг бүхэлд нь дүүргэж харагдуулна. */
+  pointer-events: none; /* Энэ нь тухайн давхарга дээр хулганаар товших, чирэх үйлдэл хийх боломжгүй болгоно */
+}
+h1 {
+  font-size: 28px;
+  color: #ff5c8a;
+}
+body {
+  margin: 0;
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(135deg, #ffd6e0, #fdd9fd);
+}
+
+#strip img {
+  width: 160px;
+  background: white;
+  padding: 10px 10px 40px 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform: rotate(-2deg);
+}
+video {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: cover;
+}
+#sticker-layer {
+  position: absolute;
+  inset: 0;
+}
+
+button {
+  background: #ff8fab;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.controls button{
+  margin: 5px;
+  padding: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #ff8fab;
+  color: white;
+  font-size: 18px;
+}
+button:active {
+  transform: scale(0.95);
+}
+
+.filters button:hover {
+  margin: 3px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  transform: scale(1.1);
+}
+
+#strip {
+  display: flex;
+  overflow-x: auto;
+}
+
+#strip img {
+  width: 100px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+#countdown{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: white;
+  font-weight: bold;
+}
+.app{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.sidebar{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+.capture-btn{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  font-size:28px;
+  background:#ff5c8a;
+}
+
+.controls{
+  background: rgba(255,255,255,0.3);
+  padding:10px;
+  border-radius:15px;
+  width:90%;
+  max-width:400px;
+}
+
+.row{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+}
+
+#canvas{
+  display:none;
+}
+
+#countdown{
+  font-size:80px;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(0.5);}
+  to{transform:scale(1);}
+}
+
+#final-preview img{
+  margin-top:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.footer span {
+  font-weight: bold;
+  color: #ff2e7a;
+}
+.footer p:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}

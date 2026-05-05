@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">  <!-- UTF-8 нь дэлхийн бараг бүх хэлний үсэг, тэмдэгт, emoji-г дэмждэг универсал стандарт юм.--> 
+        <link rel="stylesheet" href="pb_css_code.css">
+        <title>PhotoBooth</title>
+    </head>
+    <body>
+        <h1>˙✧˖°📷 PhotoBooth ༘ ⋆｡˚</h1>
+        <div class="app">
+            <!-- КАМЕРЫН ХЭСЭГ -->
+            <div class="camera-wrap" id="camera-wrap"></div>
+            <div class="camera-wrap">
+                <video id="video" autoplay playsinline></video>  <!-- Энэ нь камерын дүрсийг гаргах үндсэн хэсэг юм.-->
+                <canvas id="canvas"></canvas>  <!-- зураг зурах зориулалттай тэгш өнцөгт талбайг үүсгэдэг -->
+                <div id="frame-overlay"></div>
+                <div id="sticker-layer"></div>
+                <div id="countdown"></div>
+            </div>
+
+            <div class="sidebar">
+            <!-- MAIN BUTTON -->
+            <button class="capture-btn" onclick="multiShot()">📸</button>
+            <audio id="shutter" src="https://www.soundjay.com/camera/camera-click-01.mp3"></audio>
+            <!--filter-->
+            <div class="controls">
+                <h3>Filters</h3>
+                <div class="row">
+                    <button onclick="applyFilter('normal')"> Normal </button>
+                    <button onclick="applyFilter('warm')"> Warm </button>
+                    <button onclick="applyFilter('pink')">Pink</button>
+                    <button onclick="applyFilter('bw')"> B&W </button>
+                    <button onclick="applyFilter('vintage')"> Vintage </button>
+                </div>
+            </div>
+
+            <input type="file" accept="image/*" onchange="addImageSticker(event)">
+            
+            <!--sticker-->
+            <div class="controls">
+                <h3>stickers</h3>
+                <div class="row">
+                    <button onclick="addSticker('💖')">💖</button>
+                    <button onclick="addSticker('⭐')">⭐</button>
+                    <button onclick="addSticker('🐰')">🐰</button>
+                </div>
+            </div>
+            <div class="controls">
+                <h3>Frames</h3>
+                <div class="row">
+                    <button onclick="applyFrame(pinkFrame)">🌸</button>
+                    <button onclick="applyFrame(starFrame)">⭐</button>
+                    <button onclick="applyFrame(heartFrame)">💖</button>
+                </div>
+            </div>
+            <div class="actions">
+                <input type="file" onchange="uploadImage(event)">
+                <button onclick="createStrip()">⬇ Download</button>
+            </div></div>
+        </div>
+
+        <!-- АВСАН ЗУРГУУДЫН ЖАГСААЛТ -->
+         <div id="strip"></div>
+         <div id="final-preview"></div>
+         <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+         <script src="pb_js_code.js"></script>
+         <div id="flash"></div>
+        <footer class="footer">
+            <p>✨ Built by <span>Nomin</span></p>
+            <p>© 2026 PhotoBooth Project</p>
+        </footer>
+    </body>
+</html>
